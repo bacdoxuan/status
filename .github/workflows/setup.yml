@@ -48,12 +48,7 @@ jobs:
         with:
           ref: ${{ github.head_ref || github.ref_name }}
           token: ${{ steps.app_token.outputs.token || secrets.GH_PAT || github.token }}
-      - name: Update template
-        uses: upptime/uptime-monitor@v1.46.5
-        with:
-          command: "update-template"
-        env:
-          GH_PAT: ${{ steps.app_token.outputs.token || secrets.GH_PAT || github.token }}
+      # Template updates disabled to preserve custom hourly workflow
       - name: Update response time
         uses: upptime/uptime-monitor@v1.46.5
         with:

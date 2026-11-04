@@ -23,7 +23,7 @@ status-website:
   logoUrl: assets/smt-logo.svg
   name: Simple Money Tracker Status
   introTitle: "**Simple Money Tracker** status — real-time availability of the web app and the Telegram integration."
-  introMessage: Uptime is checked every 5 minutes from independent GitHub infrastructure — no server required, powered entirely by GitHub Actions, Issues, and Pages.
+  introMessage: Uptime is checked every hour from independent GitHub infrastructure — no server required, powered entirely by GitHub Actions, Issues, and Pages.
   navbar:
     - title: Status
       href: /
@@ -31,3 +31,10 @@ status-website:
       href: https://simplemoneytracker.com
     - title: GitHub
       href: https://github.com/$OWNER/$REPO
+
+workflowSchedule:
+  uptime: "0 * * * *"
+  graphs: "0 0 * * *"
+  responseTime: "0 23 * * *"
+  summary: "0 0 * * *"
+  updateTemplate: "0 0 1 1 *"
