@@ -1,0 +1,42 @@
+<svg width="256" height="256" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- 
+      Logo SVG: Ví nam đóng với thẻ tín dụng
+      - Ví hình chữ nhật, màu xanh da trời nhạt, trạng thái đóng.
+      - Có quai cài màu nâu và viền may chỉ trắng.
+      - Hai thẻ tín dụng (cam, vàng) nằm ngang nhô ra từ ví.
+    -->
+
+    <!-- Thẻ tín dụng màu vàng (lớp sau) -->
+    <g transform="translate(20, 18)">
+        <rect width="50" height="35" rx="4" fill="#FBBF24"/>
+        <rect x="5" y="22" width="8" height="6" rx="1.5" fill="#FFD700" stroke="#DAA520" stroke-width="0.5"/>
+        <path d="M5 8 H 25 M5 12 H 30 M5 16 H 20" stroke="white" stroke-width="1.5" stroke-linecap="round" opacity="0.8"/>
+        <circle cx="42" cy="27" r="4" fill="#FFFFFF" opacity="0.5"/>
+        <circle cx="36" cy="27" r="4" fill="#FFFFFF" opacity="0.5"/>
+    </g>
+
+    <!-- Thẻ tín dụng màu cam (lớp trước) -->
+    <g transform="translate(40, 18)">
+        <rect width="50" height="35" rx="4" fill="#F97316"/>
+        <rect x="5" y="22" width="8" height="6" rx="1.5" fill="#FFD700" stroke="#DAA520" stroke-width="0.5"/>
+        <path d="M5 8 H 25 M5 12 H 30 M5 16 H 20" stroke="white" stroke-width="1.5" stroke-linecap="round" opacity="0.8"/>
+        <circle cx="42" cy="27" r="4" fill="#FFFFFF" opacity="0.5"/>
+        <circle cx="36" cy="27" r="4" fill="#FFFFFF" opacity="0.5"/>
+    </g>
+
+    <!-- Phần thân chính của ví -->
+    <rect x="10" y="30" width="80" height="50" rx="8" fill="#87CEEB"/>
+    
+    <!-- Tạo hiệu ứng gập ở gáy ví -->
+    <path d="M48 30 H52 V80 H48 Z" fill="#76B6D2"/>
+
+    <!-- Quai cài màu nâu -->
+    <path d="M60 48 H90 C92 48, 93 49, 93 51 V59 C93 61, 92 62, 90 62 H60 V48 Z" fill="#A0522D"/>
+    
+    <!-- Nút bấm trên quai cài -->
+    <circle cx="85" cy="55" r="4" fill="#CDCDCD"/>
+    <circle cx="85" cy="55" r="2.5" fill="#F5F5F5"/>
+
+    <!-- Đường may chỉ trắng viền ví -->
+    <path d="M15 34 H85 C86.1046 34, 87 34.8954, 87 36 V74 C87 75.1046, 86.1046 76, 85 76 H15 C13.8954 76, 13 75.1046, 13 74 V36 C13 34.8954, 13.8954 34, 15 34 Z" stroke="white" stroke-width="1.5" stroke-dasharray="4 3" stroke-linecap="round" fill="none" opacity="0.9"/>
+</svg>
