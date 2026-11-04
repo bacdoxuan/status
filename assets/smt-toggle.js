@@ -1,5 +1,5 @@
 /**
- * Simple Money Tracker — Dark/Light Mode Theme Toggle v1.1
+ * Simple Money Tracker — Dark/Light Mode Theme Toggle v1.2
  * Fully compliant with Modern Web Guidance (dark-mode-toggle standard)
  */
 (function() {
