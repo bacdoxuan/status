@@ -16,8 +16,7 @@
 
 name: Summary CI
 on:
-  schedule:
-    - cron: "0 0 * * *"
+  # schedule disabled - handled by hourly Uptime CI via cron-job.org
   repository_dispatch:
     types: [summary]
   workflow_dispatch:

@@ -16,8 +16,7 @@
 
 name: Response Time CI
 on:
-  schedule:
-    - cron: "0 23 * * *"
+  # schedule disabled - handled by hourly Uptime CI via cron-job.org
   repository_dispatch:
     types: [response_time]
   workflow_dispatch:
