@@ -1,31 +1,32 @@
-# Change these first
-owner: upptime # Your GitHub organization or username, where this repository lives
-repo: upptime # The name of this repository
+owner: bacdoxuan
+repo: status
 
 sites:
-  - name: Google
-    url: https://www.google.com
-  - name: Wikipedia
-    url: https://en.wikipedia.org
-  - name: Hacker News
-    url: https://news.ycombinator.com
-  - name: Secret Site
-    url: $SECRET_SITE
+  - name: Web App
+    url: https://simplemoneytracker.com
+    expectedStatusCodes:
+      - 200
+  - name: Login
+    url: https://simplemoneytracker.com/login
+    expectedStatusCodes:
+      - 200
+  - name: Telegram Bot
+    url: https://simplemoneytracker.com/api/telegram/webhook
+    expectedStatusCodes:
+      - 405
 
 status-website:
-  # Add your custom domain name, or remove the `cname` line if you don't have a domain
-  # Uncomment the `baseUrl` line if you don't have a custom domain and add your repo name there
-  cname: demo.upptime.js.org
-  # baseUrl: /your-repo-name
+  # Served at https://bacdoxuan.github.io/status/ until the custom domain DNS is set up;
+  # then add `cname: status.simplemoneytracker.com` and remove `baseUrl`.
+  baseUrl: /status
   logoUrl: https://raw.githubusercontent.com/upptime/upptime.js.org/master/static/img/icon.svg
-  name: Upptime
-  introTitle: "**Upptime** is the open-source uptime monitor and status page, powered entirely by GitHub."
-  introMessage: This is a sample status page which uses **real-time** data from our [GitHub repository](https://github.com/upptime/upptime). No server required — just GitHub Actions, Issues, and Pages. [**Get your own for free**](https://github.com/upptime/upptime)
+  name: Simple Money Tracker Status
+  introTitle: "**Simple Money Tracker** status — real-time availability of the web app and the Telegram integration."
+  introMessage: Uptime is checked every 5 minutes from independent GitHub infrastructure — no server required, powered entirely by GitHub Actions, Issues, and Pages.
   navbar:
     - title: Status
       href: /
+    - title: Home
+      href: https://simplemoneytracker.com
     - title: GitHub
       href: https://github.com/$OWNER/$REPO
-
-# Upptime also supports notifications, assigning issues, and more
-# See https://upptime.js.org/docs/configuration
