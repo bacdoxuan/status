@@ -38,8 +38,7 @@ status-website:
         } catch(e) {}
       })();
     </script>
-  customFootHtml: |
-    <script src="https://bacdoxuan.github.io/status/smt-toggle.js" defer></script>
+    <script defer src="https://bacdoxuan.github.io/status/smt-toggle.js"></script>
   navbar:
     - title: Status
       href: /status
