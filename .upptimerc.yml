@@ -20,13 +20,13 @@ status-website:
   # then add `cname: status.simplemoneytracker.com` and remove `baseUrl`.
   baseUrl: /status
   themeUrl: assets/smt-theme.css
-  logoUrl: assets/smt-logo.svg
+  logoUrl: https://icons.duckduckgo.com/ip3/simplemoneytracker.com.ico
   name: Simple Money Tracker Status
   introTitle: "**Simple Money Tracker** status — real-time availability of the web app and the Telegram integration."
   introMessage: Uptime is checked every hour from independent GitHub infrastructure — no server required, powered entirely by GitHub Actions, Issues, and Pages.
   navbar:
     - title: Status
-      href: /
+      href: /status
     - title: Home
       href: https://simplemoneytracker.com
     - title: GitHub
