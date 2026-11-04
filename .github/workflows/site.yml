@@ -32,6 +32,8 @@ jobs:
   release:
     name: Build and deploy site
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     if: "!contains(github.event.head_commit.message, '[skip ci]')"
     env:
       GH_APP_PRIVATE_KEY: ${{ secrets.GH_APP_PRIVATE_KEY }}
@@ -63,6 +65,6 @@ jobs:
         with:
           github_token: ${{ steps.app_token.outputs.token || secrets.GH_PAT || github.token }}
           publish_dir: "site/status-page/__sapper__/export/"
-          force_orphan: "false"
+          force_orphan: "true"
           user_name: "Upptime Bot"
           user_email: "73812536+upptime-bot@users.noreply.github.com"
