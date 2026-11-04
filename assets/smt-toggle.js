@@ -1,5 +1,5 @@
 /**
- * Simple Money Tracker — Dark/Light Mode Theme Toggle
+ * Simple Money Tracker — Dark/Light Mode Theme Toggle v1.1
  * Fully compliant with Modern Web Guidance (dark-mode-toggle standard)
  */
 (function() {
@@ -114,8 +114,9 @@
       subtree: true
     });
 
-    setTimeout(mountThemeToggle, 300);
-    setTimeout(mountThemeToggle, 1000);
+    setTimeout(mountThemeToggle, 250);
+    setTimeout(mountThemeToggle, 750);
+    setTimeout(mountThemeToggle, 2000);
   }
 
   // Cross-tab synchronization
