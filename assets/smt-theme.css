@@ -1,38 +1,508 @@
-/* Simple Money Tracker — custom Upptime theme
-   Light, clean, brand-indigo accents. Loaded via status-website.themeUrl. */
+/* ==========================================================================
+   Simple Money Tracker (SMT) — Status Theme
+   Synchronized with Simple Money Tracker (https://simplemoneytracker.com)
+   Design System: Holographic Glassmorphism, Adaptive Dark/Light Mode, Rounded Cards
+   ========================================================================== */
+
+/* 1. Design Tokens & Root Configuration */
 :root {
-  --body-background-color: #f6f7fb;
-  --body-text-color: #0f172a;
-  --card-background-color: #ffffff;
-  --nav-background-color: #ffffff;
-  --nav-border-bottom-color: #e5e7eb;
-  --nav-current-border-bottom-color: #4f46e5;
-  --card-border-color: #e5e7eb;
-  --down-border-left-color: #e11d48;
-  --down-background-color: #fff1f2;
-  --degraded-border-left-color: #f59e0b;
+  /* Color Scheme declaration for native UA surfaces (scrollbars, form controls) */
+  color-scheme: light dark;
+
+  /* SMT Brand Colors */
+  --smt-primary: #2e6ad1;
+  --smt-primary-hover: #1e52ad;
+  --smt-primary-muted: rgba(46, 106, 209, 0.1);
+  --smt-accent-purple: #8b5cf6;
+  --smt-accent-pink: #ec4899;
+
+  /* Light Theme Surfaces & Colors */
+  --body-background-color: #f6f8fc;
+  --body-text-color: #090d16;
+  --muted-text-color: #64748b;
+  --card-background-color: rgba(255, 255, 255, 0.88);
+  --card-background-solid: #ffffff;
+  --card-border-color: rgba(226, 232, 240, 0.85);
+  --card-shadow: 0 4px 20px -2px rgba(46, 106, 209, 0.07), 0 2px 6px -1px rgba(0, 0, 0, 0.04);
+  --card-shadow-hover: 0 12px 30px -4px rgba(46, 106, 209, 0.14), 0 4px 10px -2px rgba(0, 0, 0, 0.06);
+
+  /* Navigation Bar */
+  --nav-background-color: rgba(255, 255, 255, 0.82);
+  --nav-border-bottom-color: rgba(226, 232, 240, 0.8);
+  --nav-current-border-bottom-color: #2e6ad1;
+
+  /* Status Indicators (Light Theme) */
   --up-border-left-color: #10b981;
-  --tag-color: #ffffff;
   --tag-up-background-color: #10b981;
-  --tag-down-background-color: #e11d48;
+  --tag-up-bg: rgba(16, 185, 129, 0.12);
+  --tag-up-text: #065f46;
+  --tag-up-border: rgba(16, 185, 129, 0.28);
+
+  --degraded-border-left-color: #f59e0b;
   --tag-degraded-background-color: #f59e0b;
-  --change-background-color: #f59e0b;
-  --error-button-border-color: #4338ca;
-  --error-button-background-color: #4f46e5;
-  --error-button-color: #ffffff;
-  --submit-button-border-color: #4338ca;
-  --submit-button-background-color: #4f46e5;
+  --tag-degraded-bg: rgba(245, 158, 11, 0.12);
+  --tag-degraded-text: #92400e;
+  --tag-degraded-border: rgba(245, 158, 11, 0.28);
+
+  --down-border-left-color: #f43f5e;
+  --down-background-color: rgba(254, 242, 242, 0.7);
+  --tag-down-background-color: #f43f5e;
+  --tag-down-bg: rgba(244, 63, 94, 0.12);
+  --tag-down-text: #9f1239;
+  --tag-down-border: rgba(244, 63, 94, 0.28);
+
+  --tag-color: #ffffff;
+  --change-background-color: rgba(46, 106, 209, 0.08);
+
+  /* Buttons & Controls */
+  --primary-color: #2e6ad1;
+  --submit-button-background-color: #2e6ad1;
+  --submit-button-border-color: #1e52ad;
   --submit-button-color: #ffffff;
-  --graph-opacity: 1;
-  --graph-filter: none;
+  --error-button-background-color: #f43f5e;
+  --error-button-border-color: #e11d48;
+  --error-button-color: #ffffff;
+
+  --segmented-bg: rgba(226, 232, 240, 0.65);
+  --code-background-color: rgba(241, 245, 249, 0.9);
+  --code-color: #2e6ad1;
+
+  /* UI Tokens */
+  --border-radius-card: 0.875rem;
+  --border-radius-pill: 9999px;
+  --border-radius-sm: 0.5rem;
+  --backdrop-blur: blur(16px);
+
+  /* Native UA scrollbar & accent styling */
+  accent-color: var(--primary-color);
+  --scrollbar-track: rgba(226, 232, 240, 0.5);
+  --scrollbar-thumb: rgba(148, 163, 184, 0.6);
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
 }
 
+/* 2. Adaptive Dark Mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --smt-primary: #4f8bf9;
+    --smt-primary-hover: #70a4fc;
+    --smt-primary-muted: rgba(79, 139, 249, 0.18);
+
+    --body-background-color: #0b0f19;
+    --body-text-color: #f8fafc;
+    --muted-text-color: #94a3b8;
+    --card-background-color: rgba(17, 24, 39, 0.82);
+    --card-background-solid: #111827;
+    --card-border-color: rgba(255, 255, 255, 0.09);
+    --card-shadow: 0 4px 24px -2px rgba(0, 0, 0, 0.45);
+    --card-shadow-hover: 0 12px 36px -4px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(79, 139, 249, 0.25);
+
+    --nav-background-color: rgba(11, 15, 25, 0.85);
+    --nav-border-bottom-color: rgba(255, 255, 255, 0.08);
+    --nav-current-border-bottom-color: #4f8bf9;
+
+    --up-border-left-color: #34d399;
+    --tag-up-background-color: #10b981;
+    --tag-up-bg: rgba(16, 185, 129, 0.18);
+    --tag-up-text: #6ee7b7;
+    --tag-up-border: rgba(52, 211, 153, 0.35);
+
+    --degraded-border-left-color: #fbbf24;
+    --tag-degraded-background-color: #f59e0b;
+    --tag-degraded-bg: rgba(245, 158, 11, 0.18);
+    --tag-degraded-text: #fde68a;
+    --tag-degraded-border: rgba(251, 191, 36, 0.35);
+
+    --down-border-left-color: #fb7185;
+    --down-background-color: rgba(69, 10, 10, 0.4);
+    --tag-down-background-color: #f43f5e;
+    --tag-down-bg: rgba(244, 63, 94, 0.2);
+    --tag-down-text: #fecdd3;
+    --tag-down-border: rgba(251, 113, 133, 0.35);
+
+    --change-background-color: rgba(79, 139, 249, 0.12);
+
+    --primary-color: #4f8bf9;
+    --submit-button-background-color: #3b82f6;
+    --submit-button-border-color: #2563eb;
+    --submit-button-color: #ffffff;
+
+    --segmented-bg: rgba(30, 41, 59, 0.8);
+    --code-background-color: rgba(30, 41, 59, 0.8);
+    --code-color: #93c5fd;
+
+    --scrollbar-track: rgba(15, 23, 42, 0.6);
+    --scrollbar-thumb: rgba(71, 85, 105, 0.8);
+  }
+}
+
+/* 3. Base & Holographic Ambient Background */
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background-color: var(--body-background-color) !important;
+  color: var(--body-text-color) !important;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -15%, rgba(46, 106, 209, 0.12), transparent 60%),
+    radial-gradient(ellipse 60% 40% at 85% 10%, rgba(236, 72, 153, 0.06), transparent 50%),
+    radial-gradient(ellipse 50% 30% at 15% 30%, rgba(139, 92, 246, 0.05), transparent 50%) !important;
+  background-attachment: fixed !important;
   -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  margin: 0;
+  line-height: 1.6;
 }
 
+@media (prefers-color-scheme: dark) {
+  body {
+    background-image:
+      radial-gradient(ellipse 80% 50% at 50% -15%, rgba(99, 102, 241, 0.18), transparent 60%),
+      radial-gradient(ellipse 60% 40% at 85% 10%, rgba(236, 72, 153, 0.10), transparent 50%),
+      radial-gradient(ellipse 50% 30% at 15% 30%, rgba(79, 139, 249, 0.10), transparent 50%) !important;
+  }
+}
+
+/* 4. Glassmorphic Navigation Bar */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--nav-background-color) !important;
+  backdrop-filter: var(--backdrop-blur);
+  -webkit-backdrop-filter: var(--backdrop-blur);
+  border-bottom: 1px solid var(--nav-border-bottom-color) !important;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.03);
+  margin-bottom: 2rem;
+  padding: 0 1rem;
+}
+
+nav .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: 0.5rem;
+}
+
+/* Nav Logo */
+nav a.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--body-text-color) !important;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+nav a.logo:hover {
+  opacity: 0.85;
+}
+
+nav a.logo img {
+  height: 2.25rem !important;
+  width: 2.25rem !important;
+  border-radius: 0.5rem !important;
+  box-shadow: 0 2px 8px rgba(46, 106, 209, 0.15);
+  object-fit: contain;
+}
+
+/* Nav Menu Links */
+nav ul {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li a {
+  padding: 0.45rem 0.85rem !important;
+  border-radius: var(--border-radius-sm);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--muted-text-color) !important;
+  text-decoration: none !important;
+  transition: all 0.15s ease-in-out;
+}
+
+nav ul li a:hover {
+  color: var(--primary-color) !important;
+  background-color: var(--smt-primary-muted);
+}
+
+nav ul li a[aria-current="page"],
+nav [aria-current] {
+  color: var(--primary-color) !important;
+  font-weight: 600;
+  background-color: var(--smt-primary-muted);
+  border-bottom: none !important;
+}
+
+/* 5. Typography & Header */
+main.container header {
+  padding-block-start: 1rem;
+  padding-block-end: 2rem;
+}
+
+main.container header h1 {
+  font-size: 1.85rem;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.025em;
+  color: var(--body-text-color);
+  margin-bottom: 0.75rem;
+}
+
+main.container header h1 strong {
+  color: var(--primary-color);
+  font-weight: 800;
+}
+
+main.container header p.lead {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--muted-text-color);
+  max-width: 44rem;
+}
+
+h2 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--body-text-color);
+  margin-block: 1.5rem 1rem;
+}
+
+h3 {
+  color: var(--muted-text-color);
+}
+
+/* 6. Service / Monitor Cards */
+article {
+  background-color: var(--card-background-color) !important;
+  backdrop-filter: var(--backdrop-blur);
+  -webkit-backdrop-filter: var(--backdrop-blur);
+  border: 1px solid var(--card-border-color) !important;
+  border-radius: var(--border-radius-card) !important;
+  box-shadow: var(--card-shadow) !important;
+  padding: 1.25rem 1.5rem !important;
+  margin-bottom: 0.875rem !important;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.2s ease !important;
+}
+
+@supports (corner-shape: squircle) {
+  article {
+    corner-shape: squircle;
+  }
+}
+
+article:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--card-shadow-hover) !important;
+}
+
+/* Status accent left borders */
+article.up {
+  border-left: 5px solid var(--up-border-left-color) !important;
+}
+
+article.degraded {
+  border-left: 5px solid var(--degraded-border-left-color) !important;
+}
+
+article.down {
+  border-left: 5px solid var(--down-border-left-color) !important;
+  background-color: var(--down-background-color) !important;
+}
+
+/* Service Title in Card */
+article h4 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+}
+
+article h4 a {
+  color: var(--body-text-color) !important;
+  text-decoration: none !important;
+  transition: color 0.15s ease;
+}
+
+article h4 a:hover {
+  color: var(--primary-color) !important;
+}
+
+/* 7. Modern Status Badges (Pills) */
+.tag {
+  display: inline-flex !important;
+  align-items: center !important;
+  padding: 0.2rem 0.65rem !important;
+  border-radius: var(--border-radius-pill) !important;
+  font-size: 0.72rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  border: 1px solid transparent !important;
+  vertical-align: middle;
+  line-height: 1.2;
+}
+
+.tag.up,
+.tag.closed {
+  background-color: var(--tag-up-bg) !important;
+  color: var(--tag-up-text) !important;
+  border-color: var(--tag-up-border) !important;
+}
+
+.tag.down,
+.tag.open {
+  background-color: var(--tag-down-bg) !important;
+  color: var(--tag-down-text) !important;
+  border-color: var(--tag-down-border) !important;
+}
+
+.tag.degraded {
+  background-color: var(--tag-degraded-bg) !important;
+  color: var(--tag-degraded-text) !important;
+  border-color: var(--tag-degraded-border) !important;
+}
+
+/* 8. Segmented Control Filter (24h / 7d / 30d / 1y) */
+.changed {
+  margin-block: 1.5rem 1rem;
+}
+
+form.f.r {
+  display: inline-flex !important;
+  background-color: var(--segmented-bg) !important;
+  border: 1px solid var(--card-border-color) !important;
+  border-radius: var(--border-radius-sm) !important;
+  padding: 0.2rem !important;
+  gap: 0.25rem !important;
+  backdrop-filter: var(--backdrop-blur);
+  -webkit-backdrop-filter: var(--backdrop-blur);
+}
+
+form.f.r div {
+  margin: 0 !important;
+}
+
+form.f.r input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+form.f.r label {
+  display: inline-block;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  color: var(--muted-text-color);
+  transition: all 0.15s ease-in-out;
+  user-select: none;
+}
+
+form.f.r input[type="radio"]:checked + label {
+  background-color: var(--card-background-solid);
+  color: var(--primary-color);
+  font-weight: 600;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+form.f.r label:hover:not(:checked) {
+  color: var(--body-text-color);
+}
+
+/* 9. Response Time Chart & Graphs */
+article .graph {
+  margin-top: 0.75rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.04));
+}
+
+@media (prefers-color-scheme: dark) {
+  article .graph {
+    filter: brightness(0.92) contrast(1.1);
+  }
+}
+
+/* 10. Buttons & Interactive Links */
 a {
-  color: #4f46e5;
+  color: var(--primary-color);
+  transition: color 0.15s ease;
+}
+
+a:hover {
+  color: var(--smt-primary-hover);
+}
+
+.submit-button,
+a.error-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius-sm);
+  font-weight: 600;
+  font-size: 0.875rem;
+  border: 1px solid var(--submit-button-border-color);
+  background-color: var(--submit-button-background-color);
+  color: var(--submit-button-color);
+  text-decoration: none;
+  box-shadow: 0 2px 4px rgba(46, 106, 209, 0.2);
+  transition: all 0.15s ease-in-out;
+}
+
+.submit-button:hover,
+a.error-button:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(46, 106, 209, 0.28);
+}
+
+/* 11. Accessibility: Forced Colors Mode */
+@media (forced-colors: active) {
+  article {
+    border: 2px solid CanvasText !important;
+  }
+  .tag {
+    border: 1px solid ButtonText !important;
+  }
+  nav {
+    border-bottom: 2px solid CanvasText !important;
+  }
+}
+
+/* 12. Footer Styling */
+footer {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--card-border-color);
+  color: var(--muted-text-color);
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+footer a {
+  color: var(--muted-text-color);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+footer a:hover {
+  color: var(--primary-color);
 }
