@@ -16,10 +16,8 @@ sites:
       - 405
 
 status-website:
-  # Served at https://bacdoxuan.github.io/status/ until the custom domain DNS is set up;
-  # then add `cname: status.simplemoneytracker.com` and remove `baseUrl`.
-  baseUrl: /status
-  themeUrl: https://bacdoxuan.github.io/status/smt-theme.css
+  cname: status.simplemoneytracker.com
+  themeUrl: https://status.simplemoneytracker.com/smt-theme.css
   logoUrl: https://icons.duckduckgo.com/ip3/simplemoneytracker.com.ico
   name: Simple Money Tracker Status
   introTitle: "**Simple Money Tracker** status — real-time availability of the web app and the Telegram integration."
@@ -148,7 +146,7 @@ status-website:
     </script>
   navbar:
     - title: Status
-      href: /status
+      href: /
     - title: Home
       href: https://simplemoneytracker.com
     - title: GitHub
